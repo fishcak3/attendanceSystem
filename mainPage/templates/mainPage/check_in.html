@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check In</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/checkInStyles.css' %}"> <!-- Link to external CSS -->
+</head>
+<body>
+    <h1>Check-In for {{ event.event_name }} on {{ event.event_date }}</h1>
+
+    <!-- Check-In Form -->
+    <form id="checkInForm" method="post" action="{% url 'check_in' event.id %}">
+        {% csrf_token %}
+        <label for="student_id">Student ID:</label>
+        <input type="text" id="student_id" name="student_id" required>
+
+        <!-- Error message for empty student ID -->
+        <div id="error-message" style="color: red; display: none;">Please enter a Student ID.</div>
+        
+        <!-- Hidden field for face image data -->
+        <input type="hidden" id="face_image" name="face_image">
+
+        <!-- Video element for capturing face image and button -->
+        <div class="video-container">
+            <video id="videoElement" autoplay></video>
+        </div>
+        <div>
+            <button type="button" onclick="validateAndSubmit()">Check In</button>
+        </div>
+    </form>
+
+    <!-- Link to external JavaScript -->
+    <script src="{% static 'js/checkInScripts.js' %}"></script>
+</body>
+</html>

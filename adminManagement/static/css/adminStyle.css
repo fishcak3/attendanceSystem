@@ -1,0 +1,184 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Light background */
+    color: #333; /* Text color */
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #4CAF50;
+}
+
+p {
+    text-align: center;
+}
+
+/* Sidebar Navigation */
+.fixed-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #333;
+    padding-top: 20px;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Adjust this to ensure elements are spaced evenly */
+}
+
+.spacer {
+    flex-grow: 2; /* This allows the spacer to take up the available space */
+}
+
+
+.fixed-nav button {
+    width: 80%; /* Adjusted width for better look */
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #444;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.fixed-nav button:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+.fixed-nav button:focus {
+    outline: none;
+    background-color: #666;
+}
+
+/* Main Content */
+.content {
+    margin-left: 220px;
+    padding: 20px;
+    background-color: #fff; /* White background */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Sections visibility */
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center; /* Centered table data */
+}
+
+table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+td img {
+    max-width: 50px;
+    height: auto;
+}
+
+/* General Button Styles */
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Specific Button Styles */
+.create {
+    background-color: #28a745;
+    color: white;
+}
+
+.create:hover {
+    background-color: #218838;
+}
+
+.edit {
+    background-color: #007bff;
+    color: white;
+}
+
+.edit:hover {
+    background-color: #0056b3;
+}
+
+.delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+.delete:hover {
+    background-color: #c82333;
+}
+
+.mark-finished {
+    background-color: #ffc107;
+    color: black;
+}
+
+.mark-finished:hover {
+    background-color: #e0a800;
+}
+
+.view-attendees {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.view-attendees:hover {
+    background-color: #138496;
+}
+
+.cancel-btn {
+    background-color: #6c757d;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background-color: #5a6268;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .fixed-nav {
+        width: 150px;
+    }
+
+    .content {
+        margin-left: 170px;
+    }
+}

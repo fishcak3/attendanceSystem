@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Event: {{ event.event_name }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/editEventStyle.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" /> <!-- Leaflet CSS -->
+</head>
+<body>
+    <h1>Edit Event: {{ event.event_name }}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <!-- Longitude and Latitude Input Fields (Linked to the Map) -->
+        <label for="latitude">Latitude:</label>
+        <input type="number" step="any" id="latitude" name="latitude" value="{{ event.latitude }}" required>
+
+        <label for="longitude">Longitude:</label>
+        <input type="number" step="any" id="longitude" name="longitude" value="{{ event.longitude }}" required>
+
+        <!-- OpenStreetMap -->
+        <div id="map"></div>
+
+        <!-- Save Changes Button -->
+        <input type="submit" value="Save Changes">
+    </form>
+    
+    <!-- Cancel Button -->
+    <a href="{% url 'admin_dashboard' %}" class="cancel-btn">Cancel</a>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script> <!-- Leaflet JS -->
+    <script src="{% static 'js/editEventMap.js' %}" defer></script> <!-- Custom JS File -->
+</body>
+</html>

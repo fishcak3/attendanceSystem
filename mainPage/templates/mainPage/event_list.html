@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event List</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/eventStyles.css' %}"> <!-- Link to external CSS -->
+</head>
+<body>
+    <h1>Event List</h1>
+    <ul>
+        {% for event in events %}
+            <li>
+                <a href="#" onclick="checkLocationAndRedirect('{{ event.latitude }}', '{{ event.longitude }}', '{{ event.id }}')">
+                    {{ event.event_name }} - {{ event.event_date }}
+                </a>
+            </li>
+        {% empty %}
+            <li>No events available.</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Location Status -->
+    <p id="location-status"></p>
+
+    <!-- Link to external JavaScript -->
+    <script src="{% static 'js/event.js' %}"></script>
+</body>
+</html>

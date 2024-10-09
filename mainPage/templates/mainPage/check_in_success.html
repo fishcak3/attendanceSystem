@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check In Success</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/checkInSuccess.css' %}"> <!-- Link to your separate CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h1>Check In Successful!</h1>
+        <p>You have successfully checked in for {{ event.event_name }}.</p>
+        <a href="{% url 'home' %}">Back to Home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Attendees for {{ event.event_name }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/attendeesStyle.css' %}">  <!-- Link to the new CSS file -->
+</head>
+<body>
+    <h2>Attendees for Event: {{ event.event_name }}</h2>
+    
+    <!-- Table of Attendees -->
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Student ID</th>
+                <th>Check-in Date</th>
+                <th>Check-in Time</th>
+                <th>Actions</th>  <!-- Added Actions column for delete button -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for attendee in attendees %}
+            <tr>
+                <td>{{ attendee.student.name }}</td>
+                <td>{{ attendee.student.student_id }}</td>
+                <td>{{ attendee.check_in_time|date:"Y-m-d" }}</td> <!-- Date only -->
+                <td>{{ attendee.check_in_time|time:"H:i" }}</td> <!-- Time only -->
+                <td>
+                    <!-- Delete Button -->
+                    <form method="POST" action="{% url 'delete_attendee' event.id attendee.student.id %}" onsubmit="return confirm('Are you sure you want to remove this attendee?');">
+                        {% csrf_token %}
+                        <button type="submit" class="delete-btn">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+            {% if not attendees %}
+            <tr>
+                <td colspan="5">No attendees have checked in yet.</td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+
+    <!-- Form to Add a Student -->
+    <h3>Add a Student to the Attendees List</h3>
+    <form method="POST" action="{% url 'add_attendee' event.id %}">
+        {% csrf_token %}
+        <label for="student_id">Enter Student ID:</label>
+        <input type="text" id="student_id" name="student_id" required>
+        <button type="submit" class="add-btn">Add Student</button>
+    </form>
+
+    <!-- Cancel Button -->
+    <a href="{% url 'admin_dashboard' %}" class="cancel-btn">Cancel</a>
+</body>
+</html>

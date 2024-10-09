@@ -1,0 +1,56 @@
+/* homeStyles.css */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center; /* Horizontally center the container */
+    align-items: center; /* Vertically center the container */
+    background-image: url('/static/image/background.png'); /* Replace with the actual path to your background image */
+    background-size: cover; /* Ensure the background covers the entire page */
+    background-position: center; /* Center the background */
+    background-repeat: no-repeat; /* Avoid repeating the background */
+    background-attachment: fixed; /* Freeze the background image */
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 20px 100px rgba(37, 1, 120, 0.5); /* Stronger shadow */
+    border-radius: 10px;
+    border: 2px solid #1900ff; /* Border on all sides */
+    position: relative; /* Enable positioning for child elements */
+}
+
+h1 {
+    color: #333;
+    font-size: 2.5rem;
+}
+
+h2 {
+    color: #666;
+    font-size: 1.2rem;
+}
+
+a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+a:hover {
+    background-color: #0056b3;
+}
+
+/* Style for the location message at the bottom */
+.location-message {
+    margin-top: 20px;
+    color: #555;
+    font-size: 1rem;
+}

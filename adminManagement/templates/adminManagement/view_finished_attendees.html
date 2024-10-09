@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finished Event: {{ finished_event.event_name }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/finishedAttendeesStyle.css' %}">
+</head>
+<body>
+    <h2>Finished Event: {{ finished_event.event_name }}</h2>
+
+    <!-- Event Details -->
+    <div class="event-details">
+        <p><strong>Date:</strong> {{ finished_event.event_date }}</p>
+        <p><strong>Time:</strong> {{ finished_event.event_time }}</p>
+        <p><strong>Location:</strong> {{ finished_event.location_description }}</p>
+        <p><strong>Coordinates:</strong> Latitude: {{ finished_event.latitude }}, Longitude: {{ finished_event.longitude }}</p>
+    </div>
+
+    <!-- Attendees Section -->
+    <h3>Attendees</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Student ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in attendees %}
+            <tr>
+                <td>{{ student.name }}</td>
+                <td>{{ student.student_id }}</td>
+            </tr>
+            {% endfor %}
+            {% if not attendees %}
+            <tr>
+                <td colspan="2">No attendees checked in for this event.</td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+
+    <!-- Back to Dashboard Button -->
+    <a href="{% url 'admin_dashboard' %}">Back to Dashboard</a>
+</body>
+</html>
