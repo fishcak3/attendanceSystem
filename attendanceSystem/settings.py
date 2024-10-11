@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-jbk-ai-^0+!i6ps1)ngdunnlrhktrfrh^@z6l1to&%%9_wzc^=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 LOGIN_REDIRECT_URL = '/admin-management/'  # Redirect to the admin dashboard after login
 LOGOUT_REDIRECT_URL = '/login/'
@@ -34,6 +34,9 @@ LOGOUT_REDIRECT_URL = '/login/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
 
 # Application definition
 

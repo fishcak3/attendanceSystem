@@ -13,4 +13,6 @@ from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'attendanceSystem.settings')
 
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
 application = get_wsgi_application()
