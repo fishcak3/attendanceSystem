@@ -1,0 +1,52 @@
+/* Center the entire body content */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Full viewport height */
+    background-image: url('/static/image/background.png'); /* Replace with the actual path to your background image */
+    background-size: cover; /* Ensure the background covers the entire page */
+    background-position: center; /* Center the background */
+    background-repeat: no-repeat; /* Avoid repeating the background */
+    background-attachment: fixed; /* Freeze the background image */
+    font-family: Arial, sans-serif;
+}
+
+/* Style the event list */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style the list items */
+ul li {
+    margin: 10px 0;
+}
+
+/* Style the event links */
+ul li a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.2em;
+}
+
+ul li a:hover {
+    background-color: #325981;
+    color: #ffffff;
+    text-decoration: underline;
+    transition: background-color 0.3s ease;
+}
+
+/* Style the heading */
+h1 {
+    font-size: 2.5em;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+#location-status {
+    font-size: 1.2em;
+    color: red;
+    margin-top: 20px;
+    font-weight: bold;
+}
